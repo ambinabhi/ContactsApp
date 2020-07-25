@@ -1,1 +1,1 @@
-# A simple Android native application displaying all contacts
+# A simple Android native application displaying contacts
