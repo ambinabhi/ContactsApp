@@ -30,5 +30,7 @@
     <string name="call">call</string>
     <string name="favourite">favourite</string>
     <string name="no_contacts_found">No Contacts Found</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="done">Done</string>
 
 </resources>
