@@ -29,7 +29,7 @@ The application has following capabilities
 
 ### Screenshots
 Splash Screen
-![Screenshot_2020-07-26-20-13-05-644_com ectosense contactsapp](https://user-images.githubusercontent.com/10976047/88486261-d1255300-cf7c-11ea-8e76-5c0a7de7e685.jpg=24x48)
+![Screenshot_2020-07-26-20-13-05-644_com ectosense contactsapp](https://user-images.githubusercontent.com/10976047/88486261-d1255300-cf7c-11ea-8e76-5c0a7de7e685.jpg)
 
 All Contacts
 ![Screenshot_2020-07-26-19-54-37-429_com ectosense contactsapp](https://user-images.githubusercontent.com/10976047/88486289-003bc480-cf7d-11ea-88a3-b0568a75f79f.png)
