@@ -1,7 +1,10 @@
 package com.ectosense.contactsapp.ui.contactdetail;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,7 +16,7 @@ import com.ectosense.contactsapp.R;
 import com.ectosense.contactsapp.constants.Constants;
 import com.ectosense.contactsapp.utils.view.CaSnackBar;
 
-public class ContactDetailActivity extends AppCompatActivity {
+public class ContactDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar toolbar;
     Contact contactDetails;
@@ -23,6 +26,10 @@ public class ContactDetailActivity extends AppCompatActivity {
     TextView textError;
     LinearLayout layoutHeader;
     LinearLayout layoutDetail;
+
+    ImageView imageMessage;
+    ImageView imagePhone;
+    ImageView imageMail;
 
 
     @Override
@@ -37,6 +44,13 @@ public class ContactDetailActivity extends AppCompatActivity {
         textError = (TextView)findViewById(R.id.tv_no_details);
         layoutHeader = (LinearLayout)findViewById(R.id.ll_profile_header);
         layoutDetail = (LinearLayout)findViewById(R.id.ll_profile_detail);
+        imageMessage = (ImageView)findViewById(R.id.iv_message);
+        imagePhone = (ImageView)findViewById(R.id.iv_call);
+        imageMail = (ImageView)findViewById(R.id.iv_mail);
+
+        imageMessage.setOnClickListener(this);
+        imagePhone.setOnClickListener(this);
+        imageMail.setOnClickListener(this);
 
         setUpToolBar(toolbar);
 
@@ -75,5 +89,44 @@ public class ContactDetailActivity extends AppCompatActivity {
         layoutHeader.setVerticalGravity(View.GONE);
         layoutDetail.setVerticalGravity(View.GONE);
         CaSnackBar.showLong(getWindow().getDecorView(), "Could not load contact details");
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.iv_message:
+                openMessagingApp();
+                break;
+            case R.id.iv_call:
+                openCallApp();
+                break;
+            case R.id.iv_mail:
+                openMailApp();
+                break;
+        }
+    }
+
+    private void openMailApp() {
+        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+        /* Fill it with Data */
+        emailIntent.setType("plain/text");
+        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{contactDetails.getEmail()});
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject");
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Text");
+        startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+    }
+
+    private void openCallApp() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + contactDetails.getPhone()));
+        startActivity(intent);
+    }
+
+    private void openMessagingApp() {
+        Intent smsIntent = new Intent(Intent.ACTION_SENDTO);
+        smsIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        smsIntent.setType("vnd.android-dir/mms-sms");
+        smsIntent.setData(Uri.parse("sms:" + contactDetails.getPhone()));
+        startActivity(smsIntent);
     }
 }
