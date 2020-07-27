@@ -10,8 +10,12 @@ Simple android application designed with MVP architecture with Retrofit and RxJa
 6. Sectioned Recycler View / Recycler Virw
 6. Androidx widgets
 
+## Dev environment
+1. Android Studio 3.4.1
+2. Build gradle 3.4.1
+
 ## Supported Android Version
-SDK version 19 - 29
+SDK version: 19 - 29
 
 ## Install dependencies
 Install android studio [from here](https://developer.android.com/studio). Clone the repository or download onto your desktop.
