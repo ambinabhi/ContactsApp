@@ -20,9 +20,10 @@ SDK version: 19 - 29
 ## Install dependencies
 Install android studio [from here](https://developer.android.com/studio). Clone the repository or download onto your desktop.
 
-###Run Application
+### Run Application
 Once and android studio is installed, import the downloaded project into your Android studio workspace and build it. 
-Connect your suitable device, and run the project.
+Install all the dependeancies prompted by Android studio.
+Connect your android device with min version of Kitkat till Android 10, and run the project.
 
 ## Functionalitites
 The application has following capabilities
